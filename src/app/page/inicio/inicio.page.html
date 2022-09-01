@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-button color="warning" expand="block" 
+    routerLink="/inicioe">
+      Ingresar como Estudiante
+    </ion-button>
+
+
+    <ion-button color="dark" expand="block" 
+    routerLink="/iniciod">
+      Ingresar como Docente
+    </ion-button>
+</ion-content>
