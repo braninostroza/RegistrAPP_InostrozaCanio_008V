@@ -17,7 +17,7 @@
 
     <ion-item>
       <ion-label>Nombre: </ion-label>
-      <ion-input type="text" placeholder="Nombre"
+      <ion-input type="text" placeholder="Nombre y Apellido"
                  name="nombre" [(ngModel)]= "usuario.nombre" 
                  pattern="[a-zA-Z ]{2,254}"
                  required>
@@ -50,8 +50,8 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Email: </ion-label>
-      <ion-input type="email" placeholder="Digite Email"
+      <ion-label>Email:</ion-label>
+      <ion-input type="email" placeholder="Escriba su Email"
                  name="email" value="" [(ngModel)]= "usuario.email"
                  pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
                  required>
@@ -60,7 +60,7 @@
 
     <ion-item>
       <ion-label>Contraseña: </ion-label>
-      <ion-input type="password" placeholder="Digite Contraseña"
+      <ion-input type="password" placeholder="Contraseña"
                  name="password" value="" [(ngModel)]= "usuario.password"
                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                  required>
@@ -68,7 +68,7 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Repita Contraseña: </ion-label>
+      <ion-label>Confirmación: </ion-label>
       <ion-input type="password" placeholder="Reingrese Contraseña"
                  name="password2" value="" [(ngModel)]= "usuario.password2"
                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
