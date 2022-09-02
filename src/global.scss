@@ -26,7 +26,7 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 ion-toolbar {
-    --background: var(--ion-color-warning);
+    --background: rgb(255, 179, 71); 
     --color: var(--ion-color-dark);
 }
 
@@ -44,4 +44,8 @@ ion-toolbar ion-button {
 
 ion-toolbar ion-buttons ion-button {
     color: var(--ion-color-dark);
+}
+
+ion-content {
+    --background: rgb(255, 217, 163); 
 }
