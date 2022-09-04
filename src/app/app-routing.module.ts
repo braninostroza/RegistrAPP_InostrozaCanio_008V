@@ -42,7 +42,15 @@ const routes: Routes = [
   {
     path: 'escanearqr',
     loadChildren: () => import('./page/escanearqr/escanearqr.module').then( m => m.EscanearqrPageModule)
+  },  {
+    path: 'registroe',
+    loadChildren: () => import('./page/registroe/registroe.module').then( m => m.RegistroePageModule)
   },
+  {
+    path: 'registrod',
+    loadChildren: () => import('./page/registrod/registrod.module').then( m => m.RegistrodPageModule)
+  },
+
 ];
 
 @NgModule({

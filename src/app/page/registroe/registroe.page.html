@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro Estudiante</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button 
+        defaultHref="/"
+        text="Back"
+        color="dark"
+        mode="ios"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #formulario="ngForm" (ngSubmit) ="onSubmit()" color="warning">
+    <ion-list-header>
+
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Nombre: </ion-label>
+      <ion-input type="text" placeholder="Nombre y Apellido"
+                 name="nombre" [(ngModel)]= "usuario.nombre" 
+                 pattern="[a-zA-Z ]{2,254}"
+                 required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Institución: </ion-label>
+      <ion-input type="text" placeholder="Nombre Institución"
+                 name="institucion" [(ngModel)]= "usuario.institucion" 
+                 pattern="[a-zA-Z ]{2,254}"
+                 required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Edad: </ion-label>
+      <ion-input type="number" placeholder="Edad"
+                 name="edad" [(ngModel)]= "usuario.edad" required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Teléfono: </ion-label>
+      <ion-input type="tel" placeholder="Teléfono"
+                 name="telefono" [(ngModel)]= "usuario.telefono" 
+                 pattern="[0-9]{9}"
+                 required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email:</ion-label>
+      <ion-input type="email" placeholder="Escriba su Email"
+                 name="email" value="" [(ngModel)]= "usuario.email"
+                 pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                 required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Contraseña: </ion-label>
+      <ion-input type="password" placeholder="Contraseña"
+                 name="password" value="" [(ngModel)]= "usuario.password"
+                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                 required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Confirmación: </ion-label>
+      <ion-input type="password" placeholder="Reingrese Contraseña"
+                 name="password2" value="" [(ngModel)]= "usuario.password2"
+                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                 required>
+      </ion-input>
+    </ion-item>
+
+    <ion-button [disabled] ="formulario.invalid"
+            type="submit" expand="block" class="boton"
+            color="warning" routerLink="/registro">
+      Registrar
+    </ion-button>
+  </form>
+</ion-content>

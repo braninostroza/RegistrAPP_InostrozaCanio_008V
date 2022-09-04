@@ -15,19 +15,6 @@ export class RegistroPage implements OnInit {
   mostrarMenu(){
     this.menuController.open('first');
   }
-  usuario = {
-    nombre:'',
-    institucion:'',
-    edad:'',
-    telefono:'',
-    email: '',
-    password:'',
-    passwors2:''
-  }
-
-  onSubmit(){
-    console.log('submit');
-    console.log(this.usuario);
-  }
+  
   
 }
