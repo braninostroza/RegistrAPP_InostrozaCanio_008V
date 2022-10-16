@@ -26,8 +26,8 @@ export class AppComponent {
     },
     {
       icon: 'person-add-outline',
-      name: 'Registrar',
-      redirecTo: '/registro'
+      name: 'Sismos',
+      redirecTo: '/api'
     }, 
     
   ];

@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'inicio',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -20,36 +20,22 @@ const routes: Routes = [
     loadChildren: () => import('./page/registro/registro.module').then( m => m.RegistroPageModule)
   },
   {
-    path: 'inicioe',
-    loadChildren: () => import('./page/inicioe/inicioe.module').then( m => m.InicioePageModule)
-  },
-  {
-    path: 'iniciod',
-    loadChildren: () => import('./page/iniciod/iniciod.module').then( m => m.IniciodPageModule)
-  },
-  {
-    path: 'perfile',
-    loadChildren: () => import('./page/perfile/perfile.module').then( m => m.PerfilePageModule)
-  },
-  {
-    path: 'perfild',
-    loadChildren: () => import('./page/perfild/perfild.module').then( m => m.PerfildPageModule)
-  },
-  {
     path: 'crearqr',
     loadChildren: () => import('./page/crearqr/crearqr.module').then( m => m.CrearqrPageModule)
   },
   {
     path: 'escanearqr',
     loadChildren: () => import('./page/escanearqr/escanearqr.module').then( m => m.EscanearqrPageModule)
-  },  {
-    path: 'registroe',
-    loadChildren: () => import('./page/registroe/registroe.module').then( m => m.RegistroePageModule)
   },
   {
-    path: 'registrod',
-    loadChildren: () => import('./page/registrod/registrod.module').then( m => m.RegistrodPageModule)
+    path: 'api',
+    loadChildren: () => import('./page/api/api.module').then( m => m.ApiPageModule)
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./page/login/login.module').then( m => m.LoginPageModule)
+  },
+
 
 ];
 

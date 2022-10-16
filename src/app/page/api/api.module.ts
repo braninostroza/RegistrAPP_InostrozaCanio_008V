@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PerfildPageRoutingModule } from './perfild-routing.module';
+import { ApiPageRoutingModule } from './api-routing.module';
 
-import { PerfildPage } from './perfild.page';
+import { ApiPage } from './api.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PerfildPageRoutingModule
+    ApiPageRoutingModule
   ],
-  declarations: [PerfildPage]
+  declarations: [ApiPage]
 })
-export class PerfildPageModule {}
+export class ApiPageModule {}
