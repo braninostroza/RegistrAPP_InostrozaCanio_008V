@@ -1,28 +1,69 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button (click)="mostrarMenu()">
-        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>Registro</ion-title>
+    <ion-title>Registro de Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title></ion-card-title>
+    </ion-card-header>
 
-  <icon-card>
-    <img src="assets/logo.png" class="ion-padding">
-  </icon-card>
+    <ion-card-content>
+       <form [formGroup]="formularioRegistro" (keyup.enter)="CrearUsuario()">
 
-  <ion-button color="warning" expand="block" 
-  routerLink="/registroe" class="boton">
-    Registrar como Estudiante
-  </ion-button>
+        <ion-item>
+          <ion-label position="floating">Nombre:</ion-label>
+          <ion-input type="text" formControlName="nombre"></ion-input>
+        </ion-item>
 
-  <ion-button color="dark" expand="block" 
-  routerLink="/registrod" class="boton2">
-    Registrar como Docente
-  </ion-button>
+        <ion-item>
+          <ion-label>Rol:</ion-label>
+          <ion-select  placeholder="Escoge tu Rol" formControlName="rol">
+            <ion-select-option value="Docente" >Docente</ion-select-option>
+            <ion-select-option value="Estudiante" >Estudiante</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Correo:</ion-label>
+          <ion-input type="email" formControlName="correo" ></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label position="floating">Contraseña:</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+          <!--
+          name="password" [(ngModel)]="registroArray.password" minlength="4" maxlength="10" [pattern]="contraseñaPattern" required
+          <span class="error-msg" *ngIf="(password.touched || passwordValidation.submitted) && Password.errors?.required">Ingrese Contraseña</span>
+          <span class="error-msg" *ngIf="(password.touched || passwordValidation.submitted) && Password.errors?.pattern">La contraseña debe tener entre 8-12 caracteres</span>
+          -->
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Confirma Contraseña:</ion-label>
+          <ion-input type="password" formControlName="confirmaPass" ></ion-input>
+        </ion-item>
+
+       </form>
+       <br>
+       <ion-button color="dark" (click)="CrearUsuario()" expand="block" fill="outline" shape="round">
+         Registrar
+       </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color="dark" [routerLink] = "['/login']">
+        Iniciar Sesión
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
 

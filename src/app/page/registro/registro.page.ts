@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
+import { RegistroserviceService, Usuario } from '../../services/registroservice.service'
+import { ToastController } from '@ionic/angular';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -8,13 +11,64 @@ import { MenuController } from '@ionic/angular';
 })
 export class RegistroPage implements OnInit {
 
-  constructor(private menuController: MenuController) { }
+  formularioRegistro: FormGroup;
+  newUsuario: Usuario = <Usuario>{};
+  //registroArray: any={};
+  //contraseñaPattern = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$';
+
+  constructor(private alertController: AlertController,
+              private registroService: RegistroserviceService,
+              private toast: ToastController, 
+              private fb:FormBuilder) {
+                this.formularioRegistro = this.fb.group({
+                  'nombre' : new FormControl("", Validators.required),
+                  'rol' : new FormControl("", Validators.required),
+                  'correo' : new FormControl("", Validators.required), 
+                  'password': new FormControl("", Validators.required), 
+                  'confirmaPass': new FormControl("", Validators.required)
+                })
+               }
 
   ngOnInit() {
   }
-  mostrarMenu(){
-    this.menuController.open('first');
+
+  async CrearUsuario(){
+    var form = this.formularioRegistro.value;
+    if (this.formularioRegistro.invalid){
+      this.alertError();
+    }
+    else{
+    this.newUsuario.nombre=form.nombre;
+    this.newUsuario.rol=form.rol;
+    this.newUsuario.correo=form.correo;
+    this.newUsuario.pass = form.password;
+    this.newUsuario.rePass=form.confirmaPass;
+    this.registroService.addDatos(this.newUsuario).then(dato=>{ 
+      this.newUsuario=<Usuario>{};
+      this.showToast('Usuario Creado!');
+    });
+    this.formularioRegistro.reset();
   }
+  }
+
+  async alertError(){
+    const alert = await this.alertController.create({ 
+      header: 'Error..',
+      message: 'Debe completar todos los datos',
+      buttons: ['Aceptar']
+    })
+    await alert.present();
+  }
+
+  async showToast(msg){
+    const toast = await this.toast.create({
+      message: msg,
+      duration: 2000
+    })
+    await toast.present();
+  }
+
+  
   
   
 }

@@ -25,10 +25,15 @@ export class AppComponent {
       redirecTo: '/about'
     },
     {
-      icon: 'person-add-outline',
+      icon: 'earth-outline',
       name: 'Sismos',
       redirecTo: '/api'
-    }, 
+    },
+    {
+      icon: 'log-out-outline',
+      name: 'Salir',
+      redirecTo: '/logout'
+    },
     
   ];
   
