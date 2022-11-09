@@ -44,13 +44,6 @@ const routes: Routes = [
     loadChildren: () => import('./page/login/login.module').then( m => m.LoginPageModule),
     canActivate:[NoIngresadoGuard]
   },
-  {
-    path: 'logout',
-    loadChildren: () => import('./page/logout/logout.module').then( m => m.LogoutPageModule),
-    canActivate:[IngresadoGuard]
-  },
-
-
 
 ];
 

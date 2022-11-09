@@ -13,8 +13,6 @@ export class RegistroPage implements OnInit {
 
   formularioRegistro: FormGroup;
   newUsuario: Usuario = <Usuario>{};
-  //registroArray: any={};
-  //contraseñaPattern = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$';
 
   constructor(private alertController: AlertController,
               private registroService: RegistroserviceService,

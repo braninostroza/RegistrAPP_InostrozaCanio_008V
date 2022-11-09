@@ -29,12 +29,11 @@ export class AppComponent {
       name: 'Sismos',
       redirecTo: '/api'
     },
-    {
-      icon: 'log-out-outline',
-      name: 'Salir',
-      redirecTo: '/logout'
-    },
     
   ];
+
+  salir(){
+    return localStorage.removeItem('ingresado')
+  }
   
 }
