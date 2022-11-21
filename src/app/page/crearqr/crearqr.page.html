@@ -2,15 +2,40 @@
   <ion-toolbar>
     <ion-title>Crear QR</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button 
-        defaultHref="/"
-        text="Back"
-        color="dark"
-        mode="ios"></ion-back-button>
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="start" name="menu-outline" color="primary"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<ion-card class="ion-text-center">
+  <ion-card-content>
+    <ion-item>
+      <ion-label position="fixed">Name:</ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.nom" required></ion-input>
+    </ion-item>
+
+    <ion-button (click)="GenerarQr()" expand="block" fill="clear" shape="round">
+      Cenerar QR
+    </ion-button>
+
+    <qrcode
+    [qrdata]="qrCodeString"
+    [width]="256"
+    [errorCorrectionLevel]="M">
+    </qrcode>
+    <ion-button (click)="verQr()" expand="block" fill="clear" shape="round">
+      Ver QR
+    </ion-button>
+
+    <ion-item>
+      <ion-label class="ion-text-wrap">Scan Result: {{scannedResult}}</ion-label>
+    </ion-item>
+
+  </ion-card-content>
+</ion-card>
+
 
 </ion-content>

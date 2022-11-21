@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { IngresadoGuard } from './guards/ingresado.guard';
 import { NoIngresadoGuard } from './guards/no-ingresado.guard'
+import { EstudianteGuard } from './guards/estudiante.guard';
+import { DocenteGuard } from './guards/docente.guard';
 
 const routes: Routes = [
   {
@@ -27,12 +29,13 @@ const routes: Routes = [
   {
     path: 'crearqr',
     loadChildren: () => import('./page/crearqr/crearqr.module').then( m => m.CrearqrPageModule),
-    canActivate:[IngresadoGuard]
+    canActivate:[DocenteGuard]
+
   },
   {
     path: 'escanearqr',
     loadChildren: () => import('./page/escanearqr/escanearqr.module').then( m => m.EscanearqrPageModule),
-    canActivate:[IngresadoGuard]
+    canActivate:[EstudianteGuard]
   },
   {
     path: 'api',

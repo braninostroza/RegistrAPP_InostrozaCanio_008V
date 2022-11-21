@@ -29,6 +29,16 @@ export class AppComponent {
       name: 'Sismos',
       redirecTo: '/api'
     },
+    {
+      icon: 'earth-outline',
+      name: 'Crear QR',
+      redirecTo: '/crearqr'
+    },
+    {
+      icon: 'earth-outline',
+      name: 'Escanear QR',
+      redirecTo: '/escanearqr'
+    },
     
   ];
 

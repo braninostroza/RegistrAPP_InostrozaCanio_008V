@@ -10,8 +10,11 @@ import { MenuController } from '@ionic/angular';
 export class InicioPage implements OnInit {
 
   constructor(private menuController: MenuController) { }
+  
+  public name: string;
 
   ngOnInit() {
+    this.name=localStorage.getItem('nombre');
   }
   mostrarMenu(){
     this.menuController.open('first');

@@ -3,7 +3,7 @@ import { AlertController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
 import { RegistroserviceService, Usuario } from '../../services/registroservice.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-
+import { ToastController } from '@ionic/angular';
 
 
 
@@ -19,11 +19,16 @@ export class LoginPage implements OnInit {
 
   constructor(private alertController: AlertController,
               private navController: NavController,
+              private toast: ToastController,
               private registroService: RegistroserviceService,
               private fb: FormBuilder) { 
                 this.formularioLogin = this.fb.group({
-                  'correo': new FormControl("", Validators.required),
-                  'password': new FormControl("", Validators.required),
+                  'correo': new FormControl("", [Validators.required, Validators.email]),
+                  'password': new FormControl("", Validators.compose([
+                    Validators.required,
+                    Validators.minLength(8),
+                    Validators.maxLength(12)
+                  ])),
                 })
               }
 
@@ -43,7 +48,10 @@ export class LoginPage implements OnInit {
           a=1;
           console.log('ingresado');
           localStorage.setItem('ingresado','true');
+          localStorage.setItem('nombre',obj.nombre);
           this.navController.navigateRoot('inicio');
+          this.showToast('Bienvenido '+obj.nombre);
+          localStorage.setItem('rol',obj.rol);
 
         }
       }
@@ -63,6 +71,12 @@ export class LoginPage implements OnInit {
     return;
   }
 
-  
+  async showToast(msg){
+    const toast = await this.toast.create({
+      message: msg,
+      duration: 2000
+    })
+    await toast.present();
+  } 
   
 }

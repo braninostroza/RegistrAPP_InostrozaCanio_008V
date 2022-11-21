@@ -2,11 +2,9 @@
   <ion-toolbar>
     <ion-title>Escanear QR</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button 
-        defaultHref="/"
-        text="Back"
-        color="dark"
-        mode="ios"></ion-back-button>
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="start" name="menu-outline" color="primary"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
