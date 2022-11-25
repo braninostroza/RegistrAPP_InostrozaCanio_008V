@@ -12,8 +12,9 @@ export class CrearqrPage implements OnInit {
   qrCodeString ="";
   scannedResult: any;
   constructor(private menuController: MenuController) { }
-  usuario={
-    nom:'',
+  lista={
+    asignatura:'',
+    fecha:'',
   }
 
   ngOnInit() {
@@ -25,7 +26,8 @@ export class CrearqrPage implements OnInit {
   }
 
   GenerarQr(){
-    this.qrCodeString=this.usuario.nom;
+    this.qrCodeString=this.lista.asignatura+'\n'
+    +this.lista.fecha;
   }
   verQr(){
     this.scannedResult=this.qrCodeString;

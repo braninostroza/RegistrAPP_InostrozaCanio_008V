@@ -12,6 +12,7 @@ interface Componente{
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  public rol: string;
   constructor() {}
   componentes : Componente[] = [
     {
@@ -29,21 +30,32 @@ export class AppComponent {
       name: 'Sismos',
       redirecTo: '/api'
     },
-    {
-      icon: 'earth-outline',
-      name: 'Crear QR',
-      redirecTo: '/crearqr'
-    },
-    {
-      icon: 'earth-outline',
-      name: 'Escanear QR',
-      redirecTo: '/escanearqr'
-    },
+    //{
+      //icon: 'earth-outline',
+      //name: 'Crear QR',
+      //redirecTo: '/crearqr'
+    //},
+    //{
+      //icon: 'earth-outline',
+      //name: 'Escanear QR',
+      //redirecTo: '/escanearqr'
+    //},
     
   ];
 
   salir(){
     return localStorage.removeItem('ingresado')
   }
-  
+
+  role(){
+    if((this.rol=localStorage.getItem('rol')) == 'Docente'){
+      return true; 
+    }
+    else
+    {
+    return false;
+    }
+  }
+
 }
+

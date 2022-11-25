@@ -13,17 +13,26 @@
 <ion-card class="ion-text-center">
   <ion-card-content>
     <ion-item>
-      <ion-label position="fixed">Name:</ion-label>
-      <ion-input type="text" [(ngModel)]="usuario.nom" required></ion-input>
+      <ion-label position="fixed">Asignatura:</ion-label>
+      <ion-select placeholder="Asignatura" [(ngModel)]="lista.asignatura">
+        <ion-select-option>PROGRAMACION DE APLICACIONES MOVILES</ion-select-option>
+        <ion-select-option>ETICA PARA EL TRABAJO</ion-select-option>
+        <ion-select-option>ESTADISTICA DESCRIPTIVA</ion-select-option>
+        <ion-select-option>ARQUITECTURA</ion-select-option>
+        <ion-select-option>CALIDAD DE SOFTWARE</ion-select-option>
+        <ion-select-option>INGLES INTERMEDIO</ion-select-option>
+        <ion-select-option>PROCESO DE PORTAFOLIO</ion-select-option>
+      </ion-select>
     </ion-item>
-
+    <ion-datetime [(ngModel)]="lista.fecha" locale="es-CL"></ion-datetime>
+    
     <ion-button (click)="GenerarQr()" expand="block" fill="clear" shape="round">
       Cenerar QR
     </ion-button>
 
     <qrcode
     [qrdata]="qrCodeString"
-    [width]="256"
+    [width]="236"
     [errorCorrectionLevel]="M">
     </qrcode>
     <ion-button (click)="verQr()" expand="block" fill="clear" shape="round">

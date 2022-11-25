@@ -8,6 +8,7 @@
 
     <ion-content>
       <ion-list>
+
         <ion-menu-toggle *ngFor="let c of componentes">
           <ion-item  [routerLink]="c.redirecTo"
               detail=true color="dark">
@@ -15,12 +16,28 @@
             {{ c.name }}
          </ion-item>
         </ion-menu-toggle>
+        <!--Pestaña para el Docente-->
+        <ion-menu-toggle auto-hide="false" color="dark" *ngIf="role()==true">
+          <ion-item [routerLink]="['/crearqr']" lines="none" color="dark">
+            <ion-icon color="warning" slot="start" [name]="'qr-code-outline'"></ion-icon>
+            <ion-label>Crear QR</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <!--Pestaña para el Estudiante-->
+        <ion-menu-toggle auto-hide="false" color="dark" *ngIf="role()!=true">
+          <ion-item [routerLink]="['/escanearqr']" lines="none" color="dark">
+            <ion-icon color="warning" slot="start" [name]="'camera-outline'"></ion-icon>
+            <ion-label>Escanear QR</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
         <ion-menu-toggle auto-hide="false" color="dark">
           <ion-item (click)="salir()" [routerLink]="['/login']" lines="none" color="dark">
             <ion-icon color="warning" slot="start" [name]="'log-out-outline'"></ion-icon>
             <ion-label>Salir</ion-label>
           </ion-item>
         </ion-menu-toggle>
+
      </ion-list>
     </ion-content>
   </ion-menu>
