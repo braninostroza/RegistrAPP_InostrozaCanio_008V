@@ -44,11 +44,21 @@ export class AppComponent {
   ];
 
   salir(){
-    return localStorage.removeItem('ingresado')
+     return localStorage.clear();
   }
 
-  role(){
+  docente(){
     if((this.rol=localStorage.getItem('rol')) == 'Docente'){
+      return true; 
+    }
+    else
+    {
+    return false;
+    }
+  }
+
+  estudiante(){
+    if((this.rol=localStorage.getItem('rol')) == 'Estudiante'){
       return true; 
     }
     else

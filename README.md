@@ -3,5 +3,4 @@
 Para usar se necesita instalar 
 # npm install --save @ionic/storage
 # npm install --save @ionic/storage-angular
-#
-                               
+# npm install @capacitor-community/barcode-scanner

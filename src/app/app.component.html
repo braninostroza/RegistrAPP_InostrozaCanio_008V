@@ -17,14 +17,14 @@
          </ion-item>
         </ion-menu-toggle>
         <!--Pestaña para el Docente-->
-        <ion-menu-toggle auto-hide="false" color="dark" *ngIf="role()==true">
+        <ion-menu-toggle auto-hide="false" color="dark" *ngIf="docente()==true">
           <ion-item [routerLink]="['/crearqr']" lines="none" color="dark">
             <ion-icon color="warning" slot="start" [name]="'qr-code-outline'"></ion-icon>
             <ion-label>Crear QR</ion-label>
           </ion-item>
         </ion-menu-toggle>
         <!--Pestaña para el Estudiante-->
-        <ion-menu-toggle auto-hide="false" color="dark" *ngIf="role()!=true">
+        <ion-menu-toggle auto-hide="false" color="dark" *ngIf="estudiante()==true">
           <ion-item [routerLink]="['/escanearqr']" lines="none" color="dark">
             <ion-icon color="warning" slot="start" [name]="'camera-outline'"></ion-icon>
             <ion-label>Escanear QR</ion-label>
