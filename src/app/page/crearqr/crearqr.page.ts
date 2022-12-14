@@ -32,6 +32,5 @@ export class CrearqrPage implements OnInit {
   verQr(){
     this.scannedResult=this.qrCodeString;
 
-
   }
 }

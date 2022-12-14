@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Escanear QR</ion-title>
     <ion-buttons slot="start">
@@ -11,14 +11,13 @@
 
 <ion-content
   [fullscreen]="true"
-  [style.--background]="scanActive?'#00000000':'#ffffff'"
->
-  <ion-button expand="full" (click)="startScanner()" [hidden]="scanActive">
-    SCAN
+  [style.--background]="scanActive?'#00000000':'#ffe2ba'">
+  <ion-button expand="full" (click)="startScanner()" [hidden]="scanActive" color="dark">
+    Escanear QR
   </ion-button>
   <ion-row class="scan-button" [hidden]="!scanActive">
     <ion-col class="ion-no-padding">
-      <ion-button expand="full" (click)="stopScanner()">Stop</ion-button>
+      <ion-button expand="full" (click)="stopScanner()" color="danger">Parar</ion-button>
     </ion-col>
   </ion-row>
   <div class="scan-box" [hidden]="!scanActive"></div>
