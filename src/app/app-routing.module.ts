@@ -47,6 +47,12 @@ const routes: Routes = [
     loadChildren: () => import('./page/login/login.module').then( m => m.LoginPageModule),
     canActivate:[NoIngresadoGuard]
   },
+  {
+    path: 'asistencia',
+    loadChildren: () => import('./page/asistencia/asistencia.module').then( m => m.AsistenciaPageModule),
+    canActivate:[IngresadoGuard]
+  },
+
 
 
 ];
